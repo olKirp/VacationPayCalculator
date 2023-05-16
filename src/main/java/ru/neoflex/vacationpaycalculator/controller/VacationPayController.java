@@ -17,10 +17,7 @@ public class VacationPayController {
 
     VacationPayServiceImpl vacationPayService;
 
-    private final String usageTip = "Incorrect arguments." +
-            "\nUsage:" +
-            "\n1.calculate?salary=xxxxx&firstDay=ddmmyyyy&lastDay=ddmmyyyy" +
-            "\n2.calculate?salary=xxxxx&duration=xx";
+    private final String usageTip = "Incorrect arguments." + "\nUsage:" + "\n1.calculate?salary=xxxxx&firstDay=ddmmyyyy&lastDay=ddmmyyyy" + "\n2.calculate?salary=xxxxx&duration=xx";
 
     @Autowired
     public VacationPayController(VacationPayServiceImpl vacationPayService) {
@@ -28,10 +25,7 @@ public class VacationPayController {
     }
 
     @GetMapping("calculate")
-    public String getAllAccommodation(@RequestParam Double salary,
-                                      @RequestParam(required = false) Integer duration,
-                                      @RequestParam(required = false) @DateTimeFormat(pattern = "ddMMyyyy") LocalDate firstDay,
-                                      @RequestParam(required = false) @DateTimeFormat(pattern = "ddMMyyyy") LocalDate lastDay) {
+    public String getAllAccommodation(@RequestParam Double salary, @RequestParam(required = false) Integer duration, @RequestParam(required = false) @DateTimeFormat(pattern = "ddMMyyyy") LocalDate firstDay, @RequestParam(required = false) @DateTimeFormat(pattern = "ddMMyyyy") LocalDate lastDay) {
         Double vacationPay;
         try {
             if (firstDay != null && lastDay != null) {

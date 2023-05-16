@@ -36,18 +36,14 @@ public class VacationPayServiceImpl implements VacationPayService {
         BigDecimal vacationPay = dailySalary.multiply(BigDecimal.valueOf(duration));
         BigDecimal incomeTax = vacationPay.multiply(BigDecimal.valueOf(INCOME_TAX));
 
-        System.out.println(vacationPay + "-" + incomeTax + "=" + vacationPay.subtract(incomeTax));
         vacationPay = vacationPay.subtract(incomeTax);
 
-        return vacationPay.setScale(SCALE, RoundingMode.HALF_UP)
-                .doubleValue();
+        return vacationPay.setScale(SCALE, RoundingMode.HALF_UP).doubleValue();
     }
 
     public Double calculateVacationPay(Double salary, LocalDate firstDay, LocalDate lastDay) throws IncorrectUserDataException {
-        int duration = paidDaysCalculationService.getNumOfPaidDays(firstDay,lastDay);
+        int duration = paidDaysCalculationService.getNumOfPaidDays(firstDay, lastDay);
 
         return calculateVacationPay(salary, duration);
     }
-
-
 }

@@ -14,7 +14,7 @@ target/
 .springBeans
 .sts4-cache
 
-.gitignore
+
 
 
 ### IntelliJ IDEA ###
@@ -35,3 +35,5 @@ build/
 
 ### VS Code ###
 .vscode/
+.gitignore
+Dockerfile
